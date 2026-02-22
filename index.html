@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>7F - Application</title>
+    <style>
+        /* Styles Globaux - Style Application Mobile */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            color: #333;
+            overflow-x: hidden;
+            padding-bottom: 80px; /* Espace pour la barre du bas */
+        }
+
+        /* Barre Supérieure (Header style 1xbet) */
+        .header {
+            background-color: #5D8F00; /* Ton vert 7F */
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            font-style: italic;
+            letter-spacing: -1px;
+        }
+
+        .user-balance {
+            background: rgba(0,0,0,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Conteneur Principal */
+        .container {
+            padding: 15px;
+        }
+
+        /* Bannière / Zone de contenu */
+        .hero-card {
+            background: linear-gradient(135deg, #5D8F00 0%, #3e6100 100%);
+            border-radius: 12px;
+            padding: 20px;
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(93, 143, 0, 0.3);
+        }
+
+        .hero-card h2 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        /* Grille de menu rapide */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .menu-item:active {
+            transform: scale(0.95);
+        }
+
+        /* Barre de Navigation Basse (Bottom Nav) */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #5D8F00; /* Ton vert 7F */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            z-index: 2000;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: rgba(255,255,255,0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .nav-link.active {
+            color: white;
+        }
+
+        .nav-link span.icon {
+            font-size: 22px;
+            margin-bottom: 2px;
+        }
+
+        .nav-link span.label {
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">7F</div>
+        <div class="user-balance">0.00 XOF</div>
+    </div>
+
+    <div class="container">
+        <div class="hero-card">
+            <h2>Bienvenue sur 7F</h2>
+            <p>Vôtre plateforme de confiance</p>
+        </div>
+
+        <div class="menu-grid">
+            <a href="recharge.php" class="menu-item">
+                <div style="font-size: 30px;">💳</div>
+                <div>Recharger</div>
+            </a>
+            <a href="friend.php" class="menu-item">
+                <div style="font-size: 30px;">🎁</div>
+                <div>Bonus Amis</div>
+            </a>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="recharge.php" class="nav-link active">
+            <span class="icon">💰</span>
+            <span class="label">Solde</span>
+        </a>
+        <a href="raduim.php" class="nav-link">
+            <span class="icon">💎</span>
+            <span class="label">Raduim</span>
+        </a>
+        <a href="friend.php" class="nav-link">
+            <span class="icon">👥</span>
+            <span class="label">Friend</span>
+        </a>
+    </nav>
+
+</body>
+</html>
