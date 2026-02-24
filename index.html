@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lido Bet - Premium Casino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-gradient: linear-gradient(180deg, #fdf5b7 0%, #d4af37 50%, #b38728 100%);
+            --dark-bg: #050505;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Cadre du téléphone */
+        .phone-container {
+            width: 375px;
+            height: 780px;
+            background: radial-gradient(circle at center, #1a1505 0%, #050505 100%);
+            border: 4px solid #1f1f1f;
+            border-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0,0,0,0.9);
+            overflow: hidden;
+        }
+
+        /* HEADER PROFESSIONNEL */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 15px 10px;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon-circle {
+            width: 35px;
+            height: 35px;
+            border: 1.5px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .logo-text-top {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 900;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .btn-header {
+            background: var(--gold-gradient);
+            color: black;
+            text-decoration: none;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* TITRE CENTRAL AVEC LIONS */
+        .main-title-area {
+            text-align: center;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lion-deco { width: 30px; height: 30px; fill: #d4af37; opacity: 0.8; }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 900;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        /* GRAPHIQUE CENTRAL (DÉS) */
+        .center-graphic {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .center-graphic img {
+            width: 90%;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+        }
+
+        /* BARRE D'ACTION (JOIN NOW / LOG IN) */
+        .action-bar {
+            width: 85%;
+            margin: 0 auto 20px;
+            background: #111;
+            height: 50px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #222;
+            overflow: hidden;
+        }
+
+        .join-now {
+            background: var(--gold-gradient);
+            height: 100%;
+            flex: 1.3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 25px;
+        }
+
+        .arrow-icon {
+            background: black;
+            color: #d4af37;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 8px;
+            font-size: 12px;
+        }
+
+        .log-in-text {
+            flex: 0.7;
+            text-align: center;
+            color: #d4af37;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* MENU BAS (NAVBAR) */
+        .navbar {
+            background: linear-gradient(to bottom, #151515, #000);
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0 20px;
+            border-top: 1px solid #d4af37;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-item svg { width: 22px; height: 22px; fill: #d4af37; }
+        .nav-item span { color: #d4af37; font-size: 10px; font-weight: 500; }
+
+    </style>
+</head>
+<body>
+
+<div class="phone-container">
+    <header class="header">
+        <div class="logo-box">
+            <div class="logo-icon-circle">
+                <svg viewBox="0 0 24 24"><path fill="#d4af37" d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M7,7h2v2H7V7z M7,11h2v2H7V11z M7,15h2v2H7V15z M11,7h2v2h-2V7z M11,11h2v2h-2V11z M11,15h2v2h-2V15z M15,7h2v2h-2V7z M15,11h2v2h-2V11z M15,15h2v2h-2V15z"/></svg>
+            </div>
+            <span class="logo-text-top">LIDO BET</span>
+        </div>
+        <div class="auth-buttons">
+            <a href="#" class="btn-header">Inscription</a>
+            <a href="#" class="btn-header">Connection</a>
+        </div>
+    </header>
+
+    <div class="main-title-area">
+        <svg class="lion-deco" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+        <h1 class="main-title">Lido Bet</h1>
+        <svg class="lion-deco" style="transform: scaleX(-1);" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+    </div>
+
+    <div class="center-graphic">
+        <img src="https://i.ibb.co/v4m8fL0/dice-cards.png" alt="Lido Bet Games">
+    </div>
+
+    <div class="action-bar">
+        <a href="#" class="join-now">JOIN NOW <span class="arrow-icon">➜</span></a>
+        <a href="#" class="log-in-text">LOG IN</a>
+    </div>
+
+    <nav class="navbar">
+        <a href="#" class="nav-item">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Accueil</span>
+        </a>
+        <a href="#" class="nav-item">
+            <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.17 9 19 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            <span>Game</span>
+        </a>
+        <a href="#" class="nav-item">
+            <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8z"/></svg>
+            <span>Retrait</span>
+        </a>
+        <a href="#" class="nav-item">
+            <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.3-.06.61-.06.94s.02.64.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.49-.12-.61l-2.03-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            <span>Paramètres</span>
+        </a>
+    </nav>
+</div>
+
+</body>
+</html>
