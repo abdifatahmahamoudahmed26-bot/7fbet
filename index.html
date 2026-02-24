@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lido Bet - Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: linear-gradient(180deg, #fdf5b7 0%, #d4af37 50%, #b38728 100%);
+            --dark-surface: #0a0a0a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+
+        /* Conteneur principal simulant l'écran du téléphone */
+        .app-container {
+            width: 375px;
+            height: 812px;
+            background: radial-gradient(circle at center, #151515 0%, #000 100%);
+            border: 2px solid #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* HEADER [Image 10] */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 15px;
+            z-index: 10;
+        }
+
+        .header-left { display: flex; align-items: center; gap: 8px; }
+
+        .logo-circle {
+            width: 45px;
+            height: 45px;
+            border: 1px solid #d4af37;
+            border-radius: 50%;
+            background: url('https://i.ibb.co/v4m8fL0/dice-cards.png') center/cover; /* Simulation logo image 10 */
+        }
+
+        .header-title {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            background: var(--gold);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 900;
+        }
+
+        .header-btns { display: flex; gap: 5px; }
+
+        .btn-head {
+            background: var(--gold);
+            color: black;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* TITRE AVEC LIONS [Image 10] */
+        .hero-section { text-align: center; margin-top: 10px; }
+
+        .lion-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lion-icon { width: 35px; height: 35px; fill: #d4af37; }
+
+        .hero-text {
+            font-family: 'Cinzel', serif;
+            font-size: 42px;
+            background: var(--gold);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 900;
+        }
+
+        /* IMAGE CENTRALE FUSIONNÉE [Image 10] */
+        .center-image {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .center-image img {
+            width: 100%;
+            filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.4));
+        }
+
+        /* BOUTON PILULE [Image 10] */
+        .pill-container {
+            width: 80%;
+            margin: 0 auto 25px;
+            height: 54px;
+            background: #000;
+            border-radius: 27px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #1a1a1a;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .pill-left {
+            background: var(--gold);
+            height: 100%;
+            flex: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: 800;
+            font-size: 15px;
+            text-decoration: none;
+            border-radius: 27px;
+        }
+
+        .pill-arrow {
+            background: #000;
+            color: #d4af37;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        .pill-right {
+            flex: 0.8;
+            text-align: center;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        /* MENU NAVIGATION [Image 10] */
+        .bottom-nav {
+            background: #000;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0 30px;
+            border-top: 1.5px solid #d4af37;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-item svg { width: 24px; height: 24px; fill: #d4af37; }
+        .nav-item span { color: #d4af37; font-size: 11px; font-weight: 500; }
+
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-circle"></div>
+            <span class="header-title">Lido Bet</span>
+        </div>
+        <div class="header-btns">
+            <a href="#" class="btn-head">Inscription</a>
+            <a href="#" class="btn-head">Connection</a>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="lion-title">
+            <svg class="lion-icon" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+            <h1 class="hero-text">Lido Bet</h1>
+            <svg class="lion-icon" style="transform: scaleX(-1);" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+        </div>
+    </div>
+
+    <div class="center-image">
+        <img src="https://i.ibb.co/v4m8fL0/dice-cards.png" alt="Jeux Casino">
+    </div>
+
+    <div class="pill-container">
+        <a href="#" class="pill-left">JOIN NOW <span class="pill-arrow">➜</span></a>
+        <a href="#" class="pill-right">LOG IN</a>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Accueil</span>
+        </a>
+        <a href="#" class="nav-item">
+            <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.17 9 19 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            <span>Game</span>
+        </a>
+        <a href="#" class="nav-item">
+            <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8z"/></svg>
+            <span>Retrait</span>
+        </a>
+        <a href="#" class="nav-item">
+            <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.3-.06.61-.06.94s.02.64.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.49-.12-.61l-2.03-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            <span>Paramètres</span>
+        </a>
+    </nav>
+</div>
+
+</body>
+</html>
