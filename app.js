@@ -1,74 +1,54 @@
 const express = require("express");
-const http = require("http");
-const { Server } = require("socket.io");
+const mongoose = require("mongoose");
 const path = require("path");
-const fs = require("fs");
 
 const app = express();
-const server = http.createServer(app);
-const io = new Server(server);
-
 const PORT = process.env.PORT || 10000;
-const DB_FILE = path.join(__dirname, "users.json");
 
-// Configuration pour lire le JSON et servir les fichiers (HTML, CSS, JS)
+// Remplacez bien la ligne ci-dessous avec VOTRE lien complet
+const MONGO_URI = "mongodb+srv://abdifatahmahamoudahmed26_db_user:xDeD3w6qRywaT9rP@cluster0.qjw1boy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+mongoose.connect(MONGO_URI)
+    .then(() => console.log("✅ Connecté à MongoDB Atlas"))
+    .catch(err => console.error("❌ Erreur de connexion:", err));
+
+const userSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    userid: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    avatar: { type: String, default: 'homme' },
+    balance: { type: Number, default: 0 }
+});
+
+const User = mongoose.model("User", userSchema);
+
 app.use(express.json());
 app.use(express.static(__dirname));
 
-/* 💾 LOGIQUE BASE DE DONNÉES JSON */
-const initDB = () => {
-    if (!fs.existsSync(DB_FILE)) {
-        fs.writeFileSync(DB_FILE, JSON.stringify([]));
-    }
-};
-initDB();
-
-/* 📝 ROUTE : INSCRIPTION (Sauvegarde) */
-app.post("/register", (req, res) => {
+app.post("/register", async (req, res) => {
     try {
-        const newUser = req.body;
-        const data = JSON.parse(fs.readFileSync(DB_FILE));
-        data.push(newUser);
-        fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
-        console.log(`👤 Nouvel utilisateur inscrit : ${newUser.userid}`);
+        const newUser = new User(req.body);
+        await newUser.save();
         res.status(200).json({ success: true });
     } catch (err) {
-        res.status(500).json({ error: "Erreur lors de l'inscription" });
+        res.status(500).json({ success: false, message: "Erreur inscription" });
     }
 });
 
-/* 🔑 ROUTE : CONNEXION (Vérification) */
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
     try {
         const { userid, password } = req.body;
-        const data = JSON.parse(fs.readFileSync(DB_FILE));
-        
-        // On cherche l'utilisateur qui a le bon ID et le bon mot de passe
-        const user = data.find(u => u.userid === userid && u.password === password);
-        
+        const user = await User.findOne({ userid, password });
         if (user) {
-            console.log(`✅ Connexion réussie : ${userid}`);
-            res.status(200).json({ success: true, user: user });
+            res.status(200).json({ success: true, user });
         } else {
-            console.log(`❌ Échec de connexion : ${userid}`);
-            res.status(401).json({ success: false, message: "ID ou mot de passe incorrect" });
+            res.status(401).json({ success: false });
         }
     } catch (err) {
-        res.status(500).json({ error: "Erreur serveur" });
+        res.status(500).json({ success: false });
     }
 });
 
-/* 🏠 ROUTE PRINCIPALE */
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
-});
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
 
-/* 🟢 SOCKET.IO */
-io.on("connection", (socket) => {
-    console.log("🟢 Un joueur est en ligne :", socket.id);
-});
-
-/* 🚀 LANCEMENT DU SERVEUR */
-server.listen(PORT, () => {
-    console.log(`🚀 Ludobet tourne sur le port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`🚀 Serveur actif sur le port ${PORT}`));
