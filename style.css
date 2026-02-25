@@ -1,0 +1,217 @@
+/* --- Variables & Reset --- */
+:root {
+    --bg-dark: #0f0f0f;
+    --bg-card: #1a1a1a;
+    --gold-primary: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    --gold-solid: #d4af37;
+    --text-white: #ffffff;
+    --text-gray: #a0a0a0;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- Preloader --- */
+#preloader {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    background: var(--gold-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.loader-bar {
+    width: 150px;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-bar::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    background: var(--gold-solid);
+    animation: loading 1.5s infinite ease-in-out;
+}
+
+@keyframes loading {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* --- Layout --- */
+.app-container {
+    max-width: 500px; /* Simule un écran mobile sur desktop */
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 70px; /* Espace pour le menu bas */
+}
+
+/* --- Header --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgba(15, 15, 15, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.gold-text { color: var(--gold-solid); }
+
+.gold-gradient-text {
+    background: var(--gold-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+/* --- Buttons --- */
+.auth-buttons button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-text {
+    background: transparent;
+    color: var(--text-white);
+}
+
+.btn-gold {
+    background: var(--gold-primary);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-gold:active, .btn-main-gold:active {
+    transform: scale(0.95);
+}
+
+.btn-main-gold {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: none;
+    background: var(--gold-primary);
+    color: #000;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.hero-card {
+    background: var(--bg-card);
+    width: 100%;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(191, 149, 63, 0.2);
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+/* --- Bottom Navigation --- */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    background: #151515;
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+    transition: var(--transition);
+}
+
+.nav-item i {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.nav-item.active, .nav-item:hover {
+    color: var(--gold-solid);
+}
+
+/* --- Media Queries (Tablette) --- */
+@media (min-width: 768px) {
+    .app-container {
+        max-width: 800px;
+    }
+    .bottom-nav {
+        max-width: 800px;
+    }
+}
