@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludobet - Inscription Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold-grad: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #fbf5b7 100%);
+            --dark-bg: #050505;
+            --card-bg: #111111;
+            --gold-solid: #d4af37;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 20px; }
+        .gold-txt { background: var(--gold-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Avatar Selection */
+        .avatar-label { font-size: 0.9rem; color: #888; margin-bottom: 15px; display: block; }
+        .avatar-group { display: flex; justify-content: center; gap: 20px; margin-bottom: 25px; }
+        .avatar-box {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            border: 2px solid #333;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.3s;
+            background: #1a1a1a; font-size: 2.5rem;
+        }
+        .avatar-box.active {
+            border-color: var(--gold-solid);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            transform: scale(1.1);
+        }
+
+        /* Form Fields */
+        .form-group { text-align: left; margin-bottom: 15px; }
+        label { font-size: 0.8rem; color: #aaa; margin-left: 5px; }
+        input {
+            width: 100%; padding: 12px; margin-top: 5px;
+            background: #1a1a1a; border: 1px solid #333;
+            border-radius: 8px; color: white; outline: none;
+        }
+        input:focus { border-color: var(--gold-solid); }
+        .readonly { color: var(--gold-solid); font-family: monospace; cursor: not-allowed; font-weight: bold; }
+
+        /* Button */
+        .btn-gold {
+            width: 100%; padding: 15px; border: none; border-radius: 50px;
+            background: var(--gold-grad); color: black;
+            font-weight: 800; text-transform: uppercase; cursor: pointer;
+            margin-top: 10px; transition: 0.3s;
+        }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(189, 149, 63, 0.4); }
+        
+        .link { display: block; margin-top: 20px; color: #666; text-decoration: none; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">LUDO<span class="gold-txt">BET</span></div>
+    
+    <form id="regForm">
+        <span class="avatar-label">Choisissez votre Avatar</span>
+        <div class="avatar-group">
+            <div class="avatar-box active" onclick="setAvatar('homme', this)">👨</div>
+            <div class="avatar-box" onclick="setAvatar('femme', this)">👩</div>
+        </div>
+
+        <div class="form-group">
+            <label>Nom Complet</label>
+            <input type="text" id="fullname" placeholder="Votre nom" required>
+        </div>
+
+        <div class="form-group">
+            <label>ID Utilisateur (Généré)</label>
+            <input type="text" id="userid" class="readonly" readonly>
+        </div>
+
+        <div class="form-group">
+            <label>Mot de passe (Généré)</label>
+            <input type="text" id="password" class="readonly" readonly>
+        </div>
+
+        <button type="submit" class="btn-gold">S'inscrire et Jouer</button>
+    </form>
+    <a href="conc.html" class="link">Déjà inscrit ? Se connecter</a>
+</div>
+
+<script>
+    let selectedAvatar = 'homme';
+
+    // Sélection d'avatar
+    function setAvatar(type, el) {
+        selectedAvatar = type;
+        document.querySelectorAll('.avatar-box').forEach(b => b.classList.remove('active'));
+        el.classList.add('active');
+    }
+
+    // Génération automatique (Lettres + Chiffres)
+    function generateString(len) {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let res = '';
+        for (let i = 0; i < len; i++) res += chars.charAt(Math.floor(Math.random() * chars.length));
+        return res;
+    }
+
+    // Initialisation
+    window.onload = () => {
+        document.getElementById('userid').value = 'LUDO-' + generateString(6);
+        document.getElementById('password').value = generateString(10);
+    };
+
+    // Soumission
+    document.getElementById('regForm').onsubmit = (e) => {
+        e.preventDefault();
+        
+        const user = {
+            name: document.getElementById('fullname').value,
+            id: document.getElementById('userid').value,
+            pass: document.getElementById('password').value,
+            avatar: selectedAvatar
+        };
+
+        // Sauvegarde dans localStorage (Base de données temporaire)
+        localStorage.setItem('ludobet_user', JSON.stringify(user));
+        
+        alert("🎉 Bienvenue chez Ludobet ! Votre compte est créé.");
+        window.location.href = 'dash.html';
+    };
+</script>
+
+</body>
+</html>
