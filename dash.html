@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lido Bet - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold-grad: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #fbf5b7 100%);
+            --dark-bg: #0b0b0b;
+            --nav-bg: #151515;
+            --gold-solid: #d4af37;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .btn-solde {
+            background: #00a859;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            background: #222;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gold-solid);
+            font-size: 1.2rem;
+        }
+
+        .notif-link {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .notif-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: red;
+            color: white;
+            font-size: 10px;
+            padding: 2px 5px;
+            border-radius: 50%;
+        }
+
+        /* --- MAIN CONTENT --- */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container i {
+            font-size: 2rem;
+            background: var(--gold-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 350px;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+        }
+
+        /* --- FOOTER NAV --- */
+        nav.bottom-nav {
+            background: var(--nav-bg);
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: #888;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.75rem;
+            gap: 5px;
+            transition: 0.3s;
+        }
+
+        .nav-item.active {
+            color: var(--gold-solid);
+        }
+
+        .nav-item i {
+            font-size: 1.4rem;
+        }
+
+        /* Animations */
+        .btn-solde:active, .nav-item:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="solde.html" class="btn-solde">
+            <span>+solde</span>
+        </a>
+
+        <div class="user-profile">
+            <div class="user-avatar" id="displayAvatar">👤</div>
+            <span id="displayName" style="font-weight: 500;">Nom complet</span>
+            <a href="notif.html" class="notif-link">
+                🔔<span class="notif-badge">1</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="logo-container">
+            <i class="fas fa-dove"></i> <h1 class="brand-name">Lido Bet</h1>
+            <i class="fas fa-dove" style="transform: scaleX(-1);"></i>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://i.ibb.co/L6vVpX8/dice-cards-gold.png" alt="Jeux Lido Bet" onerror="this.src='https://cdn-icons-png.flaticon.com/512/8051/8051414.png'">
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="acceuil.html" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
+        </a>
+        <a href="game.html" class="nav-item">
+            <i class="fas fa-gamepad"></i>
+            <span>Game</span>
+        </a>
+        <a href="recharge.html" class="nav-item">
+            <i class="fas fa-wallet"></i>
+            <span>Retrait</span>
+        </a>
+        <a href="setting.html" class="nav-item">
+            <i class="fas fa-cog"></i>
+            <span>Paramètres</span>
+        </a>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Récupérer les données utilisateur du localStorage
+            const userData = JSON.parse(localStorage.getItem('ludobet_user'));
+
+            if (!userData) {
+                // Rediriger vers la connexion si aucune donnée n'existe
+                window.location.href = 'conc.html';
+                return;
+            }
+
+            // 2. Mettre à jour l'affichage
+            document.getElementById('displayName').textContent = userData.name || "Joueur";
+            
+            const avatarDiv = document.getElementById('displayAvatar');
+            if (userData.avatar === 'homme') {
+                avatarDiv.textContent = '👨';
+            } else if (userData.avatar === 'femme') {
+                avatarDiv.textContent = '👩';
+            }
+        });
+
+        // Optionnel : Ajout d'une vibration légère au clic pour mobile
+        document.querySelectorAll('a').forEach(button => {
+            button.addEventListener('click', () => {
+                if (navigator.vibrate) navigator.vibrate(10);
+            });
+        });
+    </script>
+</body>
+</html>
