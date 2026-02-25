@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ludobet - Premium Casino</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- DESIGN PREMIUM NOIR & OR --- */
+        :root {
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #fbf5b7 100%);
+            --dark-bg: #050505;
+            --card-bg: #121212;
+            --text-gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Container Mobile */
+        .app-shell {
+            width: 100%;
+            max-width: 500px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: radial-gradient(circle at top, #1a1a1a 0%, #050505 100%);
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.4rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .gold-txt {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .auth-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Boutons */
+        .btn {
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, filter 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .btn-login { background: transparent; color: white; border: 1px solid #444; }
+        .btn-join { background: var(--gold-gradient); color: #000; box-shadow: 0 0 15px rgba(191, 149, 63, 0.4); }
+
+        .btn-main {
+            background: var(--gold-gradient);
+            color: #000;
+            width: 90%;
+            padding: 18px;
+            border-radius: 50px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 30px auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn:active { transform: scale(0.96); }
+
+        /* Hero Section */
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            font-weight: 900;
+        }
+
+        .hero p {
+            color: #aaa;
+            font-size: 1rem;
+            max-width: 280px;
+        }
+
+        /* Bottom Nav */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 500px;
+            background: #0f0f0f;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: #666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.7rem;
+            gap: 4px;
+        }
+
+        .nav-item i { font-size: 1.2rem; }
+        .nav-item.active { color: var(--text-gold); }
+
+        /* Loader */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <h1 class="logo"><span class="gold-txt">LUDOBET</span></h1>
+    </div>
+
+    <div class="app-shell">
+        <header>
+            <div class="logo">LUDO<span class="gold-txt">BET</span></div>
+            <div class="auth-btns">
+                <button class="btn btn-login" onclick="location.href='conc.html'">Log In</button>
+                <button class="btn btn-join" onclick="location.href='insc.html'">Join Now</button>
+            </div>
+        </header>
+
+        <main class="hero">
+            <h1>BIENVENUE SUR <br><span class="gold-txt">LUDOBET</span></h1>
+            <p>L'expérience casino premium sur mobile.</p>
+            <button class="btn btn-main" onclick="location.href='insc.html'">COMMENCER À JOUER</button>
+        </main>
+
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active"><i class="fas fa-home"></i><span>Accueil</span></a>
+            <a href="#" class="nav-item"><i class="fas fa-gamepad"></i><span>Game</span></a>
+            <a href="#" class="nav-item"><i class="fas fa-wallet"></i><span>Retrait</span></a>
+            <a href="#" class="nav-item"><i class="fas fa-cog"></i><span>Paramètres</span></a>
+        </nav>
+    </div>
+
+    <script>
+        // Gestion du chargement
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
