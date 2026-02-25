@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludobet - Connexion Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold-grad: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #fbf5b7 100%);
+            --dark-bg: #050505;
+            --card-bg: #111111;
+            --gold-solid: #d4af37;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; padding: 20px;
+        }
+
+        .container {
+            width: 100%; max-width: 380px;
+            background: var(--card-bg); padding: 40px 30px;
+            border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+        }
+
+        .logo { font-size: 2rem; font-weight: 900; margin-bottom: 30px; }
+        .gold-txt { background: var(--gold-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .form-group { text-align: left; margin-bottom: 20px; }
+        label { font-size: 0.8rem; color: #888; margin-left: 5px; }
+        input {
+            width: 100%; padding: 14px; margin-top: 5px;
+            background: #1a1a1a; border: 1px solid #333;
+            border-radius: 10px; color: white; outline: none; transition: 0.3s;
+        }
+        input:focus { border-color: var(--gold-solid); background: #222; }
+
+        .btn-login {
+            width: 100%; padding: 16px; border: none; border-radius: 50px;
+            background: var(--gold-grad); color: black;
+            font-weight: 800; text-transform: uppercase; cursor: pointer;
+            margin-top: 10px; transition: 0.3s;
+        }
+        .btn-login:active { transform: scale(0.98); }
+
+        .error-msg {
+            color: #ff4d4d; font-size: 0.85rem; margin-top: 15px;
+            display: none; background: rgba(255, 77, 77, 0.1);
+            padding: 10px; border-radius: 5px;
+        }
+
+        .link { display: block; margin-top: 25px; color: #666; text-decoration: none; font-size: 0.85rem; }
+        .link span { color: var(--gold-solid); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">LUDO<span class="gold-txt">BET</span></div>
+    
+    <form id="loginForm">
+        <div class="form-group">
+            <label>ID UTILISATEUR</label>
+            <input type="text" id="loginId" placeholder="Ex: LUDO-XXXXXX" required>
+        </div>
+
+        <div class="form-group">
+            <label>MOT DE PASSE</label>
+            <input type="password" id="loginPass" placeholder="••••••••" required>
+        </div>
+
+        <div id="errorBox" class="error-msg">Identifiants incorrects. Veuillez réessayer.</div>
+
+        <button type="submit" class="btn-login">Connexion</button>
+    </form>
+
+    <a href="insc.html" class="link">Pas de compte ? <span>S'inscrire</span></a>
+</div>
+
+<script>
+    document.getElementById('loginForm').onsubmit = (e) => {
+        e.preventDefault();
+        
+        const idInput = document.getElementById('loginId').value;
+        const passInput = document.getElementById('loginPass').value;
+        const errorBox = document.getElementById('errorBox');
+
+        // Récupérer l'utilisateur stocké
+        const storedUser = JSON.parse(localStorage.getItem('ludobet_user'));
+
+        if (storedUser && idInput === storedUser.id && passInput === storedUser.pass) {
+            // Succès
+            errorBox.style.display = 'none';
+            window.location.href = 'dash.html';
+        } else {
+            // Échec
+            errorBox.style.display = 'block';
+            // Petit effet de vibration
+            errorBox.style.animation = 'shake 0.3s';
+            setTimeout(() => errorBox.style.animation = '', 300);
+        }
+    };
+</script>
+
+</body>
+</html>
