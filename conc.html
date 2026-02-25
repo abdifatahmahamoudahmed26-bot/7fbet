@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludobet - Connexion Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Récupération du style Ludobet */
+        :root {
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #fbf5b7 100%);
+            --dark-bg: #050505;
+            --card-bg: #121212;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-card {
+            width: 90%;
+            max-width: 380px;
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .logo { font-size: 1.8rem; font-weight: 900; margin-bottom: 30px; letter-spacing: 2px; }
+        .gold { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .form-group { text-align: left; margin-bottom: 20px; }
+        label { display: block; color: #888; font-size: 0.8rem; margin-bottom: 8px; margin-left: 5px; }
+        
+        input {
+            width: 100%;
+            padding: 14px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: white;
+            outline: none;
+        }
+
+        input:focus { border-color: #d4af37; }
+
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            background: var(--gold-gradient);
+            border: none;
+            border-radius: 50px;
+            color: black;
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .footer-links { margin-top: 25px; font-size: 0.85rem; }
+        .footer-links a { color: #d4af37; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <div class="logo">LUDO<span class="gold">BET</span></div>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label>ID UTILISATEUR</label>
+                <input type="text" id="uid" placeholder="Entrez votre ID" required>
+            </div>
+            <div class="form-group">
+                <label>MOT DE PASSE</label>
+                <input type="password" id="pwd" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-login">Se Connecter</button>
+        </form>
+
+        <div class="footer-links">
+            <p>Pas encore de compte ? <a href="insc.html">S'inscrire</a></p>
+            <br>
+            <a href="index.html" style="color: #666;">Retour à l'accueil</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').onsubmit = (e) => {
+            e.preventDefault();
+            const id = document.getElementById('uid').value;
+            alert("Connexion en cours pour l'ID : " + id);
+            // Ici tu pourras ajouter ta logique Socket.io plus tard
+            window.location.href = 'index.html';
+        };
+    </script>
+</body>
+</html>
